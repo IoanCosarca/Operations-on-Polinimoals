@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class TestOperations {
     @DisplayName("Addition")
     @Test
-    public void testAdd()
+    public void testAdd() throws Exception
     {
         CalcPolinomModel model = new CalcPolinomModel();
         model.Add("3*X^2-X+1","X-2",1);
@@ -15,7 +15,7 @@ class TestOperations {
 
     @DisplayName("Subtract")
     @Test
-    public void testSubtract()
+    public void testSubtract() throws Exception
     {
         CalcPolinomModel model = new CalcPolinomModel();
         model.Add("3*X^2-X+1","X-2",-1);
@@ -25,7 +25,7 @@ class TestOperations {
 
     @DisplayName("Multiply")
     @Test
-    public void testMultiply()
+    public void testMultiply() throws Exception
     {
         CalcPolinomModel model = new CalcPolinomModel();
         model.Multiply("3*X^2-X+1","X-2");
@@ -35,7 +35,7 @@ class TestOperations {
 
     @DisplayName("Divide")
     @Test
-    public void testDivide()
+    public void testDivide() throws Exception
     {
         CalcPolinomModel model = new CalcPolinomModel();
         model.Divide("3*X^2-X+1","X-2");
@@ -45,7 +45,7 @@ class TestOperations {
 
     @DisplayName("Derivative")
     @Test
-    public void testDerivative()
+    public void testDerivative() throws Exception
     {
         CalcPolinomModel model = new CalcPolinomModel();
         model.Derivative("3*X^2-X+1");
@@ -55,7 +55,7 @@ class TestOperations {
 
     @DisplayName("Integration")
     @Test
-    public void testIntegration()
+    public void testIntegration() throws Exception
     {
         CalcPolinomModel model = new CalcPolinomModel();
         model.Integration("3*X^2-X+1");

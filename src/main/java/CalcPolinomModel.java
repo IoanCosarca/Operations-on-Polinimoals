@@ -15,8 +15,7 @@ public class CalcPolinomModel {
         RPolin   = new ArrayList <Monom>();
     }
 
-    private void ConstructPolin(String Polin, int i)
-    {
+    private void ConstructPolin(String Polin, int i) throws Exception {
         RPolin = new ArrayList<Monom>();
         String PATTERN = "[+-]?[^+-]+";
         Pattern pattern = Pattern.compile(PATTERN);
@@ -41,7 +40,7 @@ public class CalcPolinomModel {
         Collections.sort(Polinom2);
     }
 
-    public void Add(String fPolin, String sPolin, int i) {
+    public void Add(String fPolin, String sPolin, int i) throws Exception {
         ConstructPolin(fPolin, 1);
         ConstructPolin(sPolin, 2);
         for (Monom m : Polinom2) {
@@ -77,8 +76,7 @@ public class CalcPolinomModel {
         }
     }
 
-    public void Multiply(String fPolin, String sPolin)
-    {
+    public void Multiply(String fPolin, String sPolin) throws Exception {
         ConstructPolin(fPolin, 1);
         ConstructPolin(sPolin, 2);
         for (Monom m1:Polinom1)
@@ -106,8 +104,7 @@ public class CalcPolinomModel {
         }
     }
 
-    public void Divide(String fPolin, String sPolin)
-    {
+    public void Divide(String fPolin, String sPolin) throws Exception {
         ConstructPolin(fPolin, 1);
         ConstructPolin(sPolin, 2);
         QPolin = new ArrayList<Monom>();
@@ -123,8 +120,7 @@ public class CalcPolinomModel {
         RPolin.addAll(QPolin);
     }
 
-    private void DividePolinomials(ArrayList<Monom> P1, ArrayList<Monom> P2)
-    {
+    private void DividePolinomials(ArrayList<Monom> P1, ArrayList<Monom> P2) throws Exception {
         Monom m1 = P1.get(0);
         Monom m2 = P2.get(0);
         double Qcoef = m1.getCoef() / m2.getCoef();
@@ -163,8 +159,7 @@ public class CalcPolinomModel {
         return pol;
     }
 
-    public void Derivative(String fPolin)
-    {
+    public void Derivative(String fPolin) throws Exception {
         ConstructPolin(fPolin, 1);
         for (Monom m:Polinom1)
         {
@@ -178,8 +173,7 @@ public class CalcPolinomModel {
         }
     }
 
-    public void Integration(String fPolin)
-    {
+    public void Integration(String fPolin) throws Exception {
         ConstructPolin(fPolin, 1);
         for (Monom m:Polinom1)
         {

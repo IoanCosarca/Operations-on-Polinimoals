@@ -6,9 +6,21 @@ public class Monom implements Comparable<Monom> {
     private double coefval = 0;
     private int power = 0;
 
-    public Monom (String term)
+    public Monom (String term) throws Exception {
+        int i = term.length();
+        if (term.charAt(i-2) == '*' || term.charAt(i-2) == '/')
+        {
+            this.term = "";
+            throw new Exception();
+        }
+        else {
+            this.term = term;
+            CoefPower();
+        }
+    }
+
+    private void CoefPower()
     {
-        this.term = term;
         String PATTERNP = "[^X^*]+";
         Pattern patternp = Pattern.compile(PATTERNP);
         Matcher matcherp = patternp.matcher(term);

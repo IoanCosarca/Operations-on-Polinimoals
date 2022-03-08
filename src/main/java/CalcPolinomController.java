@@ -63,28 +63,34 @@ public class CalcPolinomController implements ActionListener, MouseListener {
 
     private void CalcResult(ActionEvent e)
     {
-        if (e.getSource() == view.functions.get(0)) {   //Multiply
-            model.Multiply(view.fPolin.getText(), view.sPolin.getText());
-        }
-        if (e.getSource() == view.functions.get(1)) {   //Subtract
-            model.Add(view.fPolin.getText(), view.sPolin.getText(),-1);
-        }
-        if (e.getSource() == view.functions.get(2)) {   //Divide
-            model.Divide(view.fPolin.getText(), view.sPolin.getText());
-        }
-        if (e.getSource() == view.functions.get(3)) {   //Derivative
-            model.Derivative(view.fPolin.getText());
-        }
-        if (e.getSource() == view.functions.get(4)) {   //Addition
-            model.Add(view.fPolin.getText(), view.sPolin.getText(),1);
-        }
-        if (e.getSource() == view.functions.get(5))     //Integration
+        try
         {
-            model.Integration(view.fPolin.getText());
-            view.result.setText(view.result.getText() + "+C");
-        }
+            if (e.getSource() == view.functions.get(0)) {   //Multiply
+                model.Multiply(view.fPolin.getText(), view.sPolin.getText());
+            }
+            if (e.getSource() == view.functions.get(1)) {   //Subtract
+                model.Add(view.fPolin.getText(), view.sPolin.getText(), -1);
+            }
+            if (e.getSource() == view.functions.get(2)) {   //Divide
+                model.Divide(view.fPolin.getText(), view.sPolin.getText());
+            }
+            if (e.getSource() == view.functions.get(3)) {   //Derivative
+                model.Derivative(view.fPolin.getText());
+            }
+            if (e.getSource() == view.functions.get(4)) {   //Addition
+                model.Add(view.fPolin.getText(), view.sPolin.getText(), 1);
+            }
+            if (e.getSource() == view.functions.get(5))     //Integration
+            {
+                model.Integration(view.fPolin.getText());
+                view.result.setText(view.result.getText() + "+C");
+            }
 
-        model.WriteResult(view.result);
+            model.WriteResult(view.result);
+        }
+        catch (Exception ex) {
+            view.result.setText("Polinoame Invalide");
+        }
     }
 
     public void mouseClicked(MouseEvent e)

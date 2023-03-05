@@ -8,10 +8,10 @@ public class Monom implements Comparable<Monom> {
 
     public Monom (String term) throws Exception {
         int i = term.length();
-        if (term.charAt(i-2) == '*' || term.charAt(i-2) == '/')
+        if (i >= 2 && (term.charAt(i-2) == '*' || term.charAt(i-2) == '/'))
         {
             this.term = "";
-            throw new Exception();
+            //throw new Exception();
         }
         else {
             this.term = term;

@@ -90,6 +90,7 @@ public class CalcPolinomController implements ActionListener, MouseListener {
         }
         catch (Exception ex) {
             view.result.setText("Polinoame Invalide");
+            System.out.println(ex.toString());
         }
     }
 
